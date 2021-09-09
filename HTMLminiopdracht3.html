@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <title>Miniopdracht 3</title>
+    <style>
+        label {
+            display:inline-block;
+            width: 200px;
+        }
+
+        button {
+            margin-left: 200px;
+        }
+         
+    </style>
+
+</head>
+<body>
+    <label for="tekste">Woord:</label>
+    <input type="text" id="tekste"><br>
+    <label for="keuzeletter">Letter om te tellen:</label>
+    <input type="text" id="keuzeletter"><br>
+    <button id="buttone" onclick="checke()">Tel aantal specifieke letters.</button>
+
+
+</body>
+<script>
+    function checke() {
+        var keuzeletter = document.getElementById("keuzeletter").value.toLowerCase();
+        
+        var woord = document.getElementById("tekste").value.toLowerCase();
+        var teller = 0;
+        for (let i = 0; i < woord.length; i++) {
+            letter = woord.slice(i, i+1);
+            console.log(letter);
+            if (letter == keuzeletter){
+                teller++;
+                                
+            }
+        }
+        if (teller == 1) {
+            alert("Er zit "+teller+" " + keuzeletter + " in dit woord.");
+        } else if (teller >=2 ) {
+            alert("Er zitten "+teller+ " " + keuzeletter + "'s in dit woord.")
+        }
+    }
+
+</script>
+</html>

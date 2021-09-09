@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <title>Miniopdracht 8</title>
+    <style>
+        img {
+            height: 300px;
+            width: 450px;
+        }
+    </style>
+</head>
+<body>
+    <img id="SeizoenA" src="Zomer.jfif" alt="SeizoenA" onclick="volgendeseizoenA()"><br>
+    <div id="Extrafotolente"></div>
+    
+</body>
+<script>
+    function volgendeseizoenA() {
+        var bronA = document.getElementById('SeizoenA').src;
+        if (bronA.includes("Zomer")) {
+           document.getElementById('SeizoenA').src = 'Herfst.jfif';
+        } else if (bronA.includes("Herfst")) {
+            document.getElementById('SeizoenA').src = 'Winter.jfif';
+        } else if (bronA.includes("Winter")) {
+            document.getElementById('SeizoenA').src = 'Lente.jfif';
+            document.getElementById('Extrafotolente').innerHTML = '<img id="Lammetjes" src="Lammetjes.jfif">';
+        } else if (bronA.includes("Lente")) {
+            document.getElementById('SeizoenA').src = 'Zomer.jfif';
+            document.getElementById('Extrafotolente').innerHTML = ""; 
+        }
+
+    }
+   
+</script>
+</html>

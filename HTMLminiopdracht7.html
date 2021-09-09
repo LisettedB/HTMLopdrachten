@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <title>Miniopdracht 7</title>
+    <style>
+        img {
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img id="SeizoenA" src="Zomer.jfif" alt="SeizoenA"><br>
+    <button id="volgSeizoenA" onclick="volgendeseizoenA()">Volgende seizoen</button>
+    <div id="nrjaarA"></div>
+    <img id="SeizoenB" src="Zomer.jfif" alt="SeizoenB"><br>
+    <button id="volgSeizoenB" onclick="volgendeseizoenB()">Volgende seizoen</button>
+    <div id="nrjaarB"></div><br>
+    <button id="Vergelijkseizoenen" onclick="Vergelijkseizoenen()">Vergelijk seizoenen</button>
+
+</body>
+<script>
+    var tellerA = 0;
+    var tellerB = 0;
+
+    function volgendeseizoenA() {
+        var bronA = document.getElementById('SeizoenA').src;
+        tellerA++;
+        if (bronA.includes("Zomer")) {
+           document.getElementById('SeizoenA').src = 'Herfst.jfif';
+        } else if (bronA.includes("Herfst")) {
+            document.getElementById('SeizoenA').src = 'Winter.jfif';
+            document.getElementById('nrjaarA').innerHTML = "Er is weer een jaar voorbij."
+        } else if (bronA.includes("Winter")) {
+            document.getElementById('SeizoenA').src = 'Lente.jfif';
+            document.getElementById('nrjaarA').innerHTML = ""
+        } else if (bronA.includes("Lente")) {
+            document.getElementById('SeizoenA').src = 'Zomer.jfif';
+        }
+
+        if (tellerA == 13) {
+            document.getElementById('nrjaarA').innerHTML = "Er zijn 3 jaren voorbij in seizoen A";
+        }
+
+    }
+
+    function volgendeseizoenB() {
+        var bronB = document.getElementById('SeizoenB').src;
+        tellerB++;
+        if (bronB.includes("Zomer")) {
+           document.getElementById('SeizoenB').src = 'Herfst.jfif';
+        } else if (bronB.includes("Herfst")) {
+            document.getElementById('SeizoenB').src = 'Winter.jfif';
+            document.getElementById('nrjaarB').innerHTML = "Er is weer een jaar voorbij."
+        } else if (bronB.includes("Winter")) {
+            document.getElementById('SeizoenB').src = 'Lente.jfif';
+            document.getElementById('nrjaarB').innerHTML = ""
+        } else if (bronB.includes("Lente")) {
+            document.getElementById('SeizoenB').src = 'Zomer.jfif';
+        }
+
+        if (tellerB == 13) {
+            document.getElementById('nrjaarB').innerHTML = "Er zijn 3 jaren voorbij in seizoen B";
+        }
+
+    }
+
+    function Vergelijkseizoenen() {
+        var bronAverg = document.getElementById('SeizoenA').src;
+        var bronBverg = document.getElementById('SeizoenB').src;
+        if (bronAverg == bronBverg) {
+            console.log("Hetzelfde");
+        } else {
+            console.log("Niet hetzelfde")
+        }
+    }
+
+</script>
+</html>

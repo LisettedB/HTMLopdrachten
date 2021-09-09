@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <title>Miniopdracht 2</title>
+</head>
+<body>
+    <input type="text" id="tekste">
+    <button id="buttone" onclick="checke()">Check of er e's in het woord zitten</button>
+
+
+</body>
+<script>
+    function checke() {
+        var woord = document.getElementById("tekste").value;
+        for (let i = 0; i < woord.length; i++) {
+            letter = woord.slice(i, i+1);
+            console.log(letter);
+            if (letter == "e"){
+                alert("Er zit een E in dit woord");
+                break;
+            }
+        }
+    }
+
+</script>
+</html>

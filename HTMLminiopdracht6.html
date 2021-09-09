@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <title>Miniopdracht 6</title>
+    <style>
+        img {
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img id="Seizoen" src="Zomer.jfif" alt="Seizoen"><br>
+    <button id="volgSeizoen" onclick="volgendeseizoen()">Volgende seizoen</button>
+    <div id="nrjaar"></div>
+
+</body>
+<script>
+    var teller = 0;
+
+    function volgendeseizoen() {
+        var bron = document.getElementById('Seizoen').src;
+        teller++;
+        if (bron.includes("Zomer")) {
+           document.getElementById('Seizoen').src = 'Herfst.jfif';
+        } else if (bron.includes("Herfst")) {
+            document.getElementById('Seizoen').src = 'Winter.jfif';
+            document.getElementById('nrjaar').innerHTML = "Er is weer een jaar voorbij."
+        } else if (bron.includes("Winter")) {
+            document.getElementById('Seizoen').src = 'Lente.jfif';
+            document.getElementById('nrjaar').innerHTML = ""
+        } else if (bron.includes("Lente")) {
+            document.getElementById('Seizoen').src = 'Zomer.jfif';
+        }
+
+        if (teller == 13) {
+            console.log("13");
+            document.getElementById('nrjaar').innerHTML = "Er zijn 3 jaren voorbij";
+        }
+
+    }
+
+</script>
+</html>
